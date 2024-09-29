@@ -63,9 +63,9 @@ bash fetch_data.sh
 
 - Collect [SMPL](https://smpl.is.tue.mpg.de)/[MANO](https://mano.is.tue.mpg.de)/[FLAME](https://flame.is.tue.mpg.de)/[SMPL-X](https://smpl-x.is.tue.mpg.de) model files. Rename model files and put them into the `./data/smpl` directory.
 
-> Download the [partial_mesh](https://cloud.tsinghua.edu.cn/d/3bc20811a93b488b99a9) files and put it into the `./data/partial_mesh` directory.
+> Download the [partial_mesh](https://pan.bnu.edu.cn/l/81f0v6) files and put it into the `./data/partial_mesh` directory.
 
-> Download the [pre-trained model](https://cloud.tsinghua.edu.cn/d/3bc20811a93b488b99a9) and put it into the `./data/pretrained_model` directory.
+> Download the [pre-trained model](https://pan.bnu.edu.cn/l/81f0v6) and put it into the `./data/pretrained_model` directory.
 
 After collecting the above necessary files, the directory structure of `./data` is expected as follows.  
 ```
@@ -113,7 +113,7 @@ Results will be saved at `./output`. You can set different hyperparamters in the
 
 ## Training
 
-To perform training, we need to collect preprocessed files of training datasets first. The pseudo SMPL-X labels (with keys of 'xpose'/'xshape') can be downloaded at [here](https://cloud.tsinghua.edu.cn/d/a661f9acb537465fbc8d). Please also refer to [PyMAF](https://github.com/HongwenZhang/PyMAF#training) for more details about training. Example usage:
+To perform training, we need to collect preprocessed files of training datasets first. The pseudo SMPL-X labels (with keys of 'xpose'/'xshape') can be downloaded at [here](https://pan.bnu.edu.cn/l/81f0v6). Please also refer to [PyMAF](https://github.com/HongwenZhang/PyMAF#training) for more details about training. Example usage:
 ```
 python -m apps.train --regressor pymaf_net --train_data h36m_coco_itw --eval_every 10 --save_every 20 --train_data h36m_coco_itw --misc TRAIN.BATCH_SIZE 64 MODEL.PyMAF.AUX_SUPV_ON True MODEL.PyMAF.TRANS.USE_ATT True MODEL.PyMAF.TRANS.ATT_HEAD 1 MODEL.PyMAF.TRANS.ATT_FEAT_IDX 2 MODEL.MESH_MODEL smplx TRAIN.USE_EFT True MODEL.PyMAF.USE_CAM_FEAT True LOSS.SHAPE_W 0.6 MODEL.PyMAF.BACKBONE res50 POSE_RES_MODEL.PRETR_SET coco
 ```
